@@ -3,13 +3,13 @@
 {% endif %}
 
 {% if page.path contains "en" %}
-    {% assign logo_path = site.baseurl | append: site.logo_en_path %}
+    {% assign logo_path = site.logo_en_path | prepend: site.baseurl %}
     {% assign nav_arr = site.data.nav | where: "language", "en" | sort: "pos" %}
     {% unless translation_url %}
         {% assign translation_url = page.url | remove_first: "en/" | prepend: site.baseurl %}
     {% endunless %}
 {% else %}
-    {% assign logo_path = site.baseurl | append: site.logo_he_path %}
+    {% assign logo_path = site.logo_he_path | prepend: site.baseurl %}
     {% assign nav_arr = site.data.nav | where: "language", "he" | sort: "pos" %}
     {% unless translation_url %}
         {% assign translation_url = page.url | prepend: "/en" | prepend: site.baseurl %}
