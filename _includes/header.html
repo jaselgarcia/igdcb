@@ -1,0 +1,29 @@
+{% if page.translation_url %}
+    {% assign translation_url = page.translation_url %}
+{% endif %}
+
+{% if page.path contains "en" %}
+    {% assign logo_path = site.logo_en_path %}
+    {% assign nav_arr = site.data.nav | where: "language", "en" | sort: "pos" %}
+    {% unless translation_url %}
+        {% assign translation_url = page.url | remove_first: "en/" %}
+    {% endunless %}
+{% else %}
+    {% assign logo_path = site.logo_he_path %}
+    {% assign nav_arr = site.data.nav | where: "language", "he" | sort: "pos" %}
+    {% unless translation_url %}
+        {% assign translation_url = page.url | prepend: "en" %}
+    {% endunless %}
+{% endif %}
+
+<nav>
+    {% for nav_item in nav_arr %}
+        {% if nav_item.name == "Home" or nav_item.name == "בית" %}
+            <a href="{{ nav_item.link }}"><img src="{{ logo_path }}"></a>
+        {% elsif nav_item.name == "עב" or nav_item.name == "EN" %}
+            <a href="{{ translation_url }}">{{ nav_item.name }}</a>
+        {% else %}
+            <a href="{{ nav_item.link }}">{{ nav_item.name }}</a>
+        {% endif %}
+    {% endfor %}
+</nav>

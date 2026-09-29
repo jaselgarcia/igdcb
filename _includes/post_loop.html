@@ -1,0 +1,18 @@
+{% if page.path contains "en/" %}
+    {% assign post_arr = site.posts | where: "language", "en" %}
+{% else %}
+    {% assign post_arr = site.posts | where: "language", "he" %}
+{% endif %}
+
+<section role="list">
+    {% for post in post_arr %}
+        <article role="listitem">
+            <img src="{{ post.featured_img }}"> 
+            <header>
+                <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <time datetime="{{ post.date }}">{{ post.date | date_to_string: "ordinal", "US" }}</time>
+            </header>
+            {{ post.excerpt }}
+        </article>
+    {% endfor %}
+</section>

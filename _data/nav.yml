@@ -1,0 +1,23 @@
+- name: Donate
+  link: https://www.israelguidedog.org.il/en/donate-now/
+  language: en
+  pos: 2
+- name: Home
+  link: https://www.israelguidedog.org.il/en/
+  language: en
+  pos: 1
+- name: Donate
+  link: https://donate.israelguidedog.org.il/
+  language: he
+  pos: 2
+- name: Home
+  link: https://www.israelguidedog.org.il/
+  language: he
+  pos: 3
+- name: "עב"
+  language: en
+  pos: 3
+- name: "EN" 
+  language: he
+  pos: 1 
+
