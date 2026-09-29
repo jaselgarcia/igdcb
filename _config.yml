@@ -1,4 +1,7 @@
 title: IGDCB
+url: ""
+baseurl: ""
+
 logo_en_path: "/assets/images/logo.en.full-color.nobg.1555x559.png"
 logo_he_path: "/assets/images/logo.he.full-color.nobg.1060x322.png"
 excerpt_separator: <!--excerpt-end-->
