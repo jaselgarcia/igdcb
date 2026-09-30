@@ -22,5 +22,5 @@ layout: default
 
   <p><strong>Page not found :(</strong></p>
   <p>The requested page could not be found.</p>
-  <a href="{{ page.url | remove_first: "404.html" }}">Back to posts</a>
+  <a href="{{ page.url | remove_first: "404.html" | prepend: site.baseurl }}">Back to posts</a>
 </div>

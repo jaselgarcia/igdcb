@@ -22,5 +22,5 @@ layout: default
 
   <p><strong>הדף לא נמצא :(</strong></p>
   <p>לא ניתן היה למצוא את הדף המבוקש.</p>
-  <a href="{{ page.url | remove_first: "404.html" }}">חזרה לפוסטים.</a>
+  <a href="{{ page.url | remove_first: "404.html" | prepend: site.baseurl }}">חזרה לפוסטים.</a>
 </div>
