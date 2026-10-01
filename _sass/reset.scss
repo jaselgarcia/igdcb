@@ -1,0 +1,78 @@
+/*
+    Mash-up of different css reset ideas:
+    - Josh Comeau: https://www.joshwcomeau.com/css/custom-css-reset/
+    - Andy Bell: https://piccalil.li/blog/a-more-modern-css-reset/
+    - Ideas via Chris Coyier
+        - Inheritied box-sizing: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+        - Hanging punctuation: https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/
+    - Instructive Kevin Powell videos
+        - 'Min-block size', 'scrollbar-gutter': https://www.youtube.com/watch?v=qI5rXLJnxco&t=170s
+            - Great exploration of viewport unit differences: https://ishadeed.com/article/new-viewport-units/
+        - 'max-width: 65ch', ':has(:target)' and 'scroll-padding-top': https://www.youtube.com/watch?v=cCAtD_BAHNw
+*/
+
+:root {
+   box-sizing: border-box; 
+   -moz-text-size-adjust: none;
+   -webkit-text-size-adjust: none;
+   text-size-adjust: none;
+   hanging-punctuation: first last;
+   scrollbar-gutter: stable;
+}
+
+* {
+    &,
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        padding: 0;
+    }
+
+    &:not(dialog) {
+        margin: 0;
+    }
+}
+
+body {
+    line-height: calc(#{$base_margin} + .5rem);
+    -webkit-font-smoothing: antialiasing;
+    min-block-size: 100svh;
+}
+
+:is(ul, ol)[role='list'] {
+    list-style: none;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+
+    &, p {
+        overflow-wrap: break-word;
+    }
+}
+
+p, li, figcaption {
+    text-wrap: pretty;
+    max-width: 65ch;
+
+}
+
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    :has(:target) {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(#{$base_padding} * 2);
+    }
+}

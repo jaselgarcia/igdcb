@@ -1,0 +1,26 @@
+/*
+    Lobotomized owl selector courtesy of Heydon Pickering: https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+    Lays the foundation for consistent flow between all elements.
+    Appened ':not(dialog)' pseudo-class to match idea from Comeau reset.
+*/
+
+* {
+    & + &:not(dialog) { 
+        margin-top: calc(#{$base_margin} * 1.5);
+    }
+}
+
+body {
+    background-color: white;
+}
+
+
+a {
+    height: fit-content;
+    display: inline-block;
+
+    &:hover {
+        background-color: red;
+    }
+}
+

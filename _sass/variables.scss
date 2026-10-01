@@ -1,0 +1,23 @@
+// Spacing 
+$base_margin: 1em;
+$base_padding: 1rem;
+
+// Fonts
+$base_fontsize: 1rem;
+
+// Colors
+$theme_colors: (
+    "orange": #ee7f2f,
+    "yellow": #f7ba25,
+    "green": #4f9c2e
+);
+
+:root {
+    @each $color, $value in $theme_colors {  
+        @for $i from 1 through 9 {
+           $color_percentage: 100 - $i * 10;
+            
+           --_#{$color}_#{$color_percentage}: color-mix(white, #{$value} #{$color_percentage}%);
+        }
+    }
+}
