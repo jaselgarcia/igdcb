@@ -16,8 +16,10 @@
     {% endunless %}
 {% endif %}
 
-<nav>
+<nav aria-label="primary">
+    <ul role="list">
     {% for nav_item in nav_arr %}
+        <li role="listitem">
         {% if nav_item.name == "Home" or nav_item.name == "בית" %}
             <a href="{{ nav_item.link }}"><img src="{{ logo_path }}"></a>
         {% elsif nav_item.name == "עב" or nav_item.name == "EN" %}
@@ -25,5 +27,7 @@
         {% else %}
             <a href="{{ nav_item.link }}">{{ nav_item.name }}</a>
         {% endif %}
+        </li>
     {% endfor %}
+    </ul>
 </nav>
