@@ -48,10 +48,14 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Install PurgeCSS
-        run: npm install -g purgecss
+      - name: Install PurgeCSS and js-beautify
+        run: npm install -g purgecss js-beautify
       - name: Run PurgeCSS
-        run: purgecss -c ./purgecss.config.js -o ./_site/assets/css/purged
+        run: purgecss -c ./purgecss.config.js 
+      - name: Beautify HTML output
+      - run: html-beautify -r ./_site/*html ./_site/**/*html
+      - name: Decomment and remove empty rules from purged css
+        run: perl -0777 -i -ne 's|/\*[^\*]*\*/||g; s/[[:alpha:]\s:()]+{[\s]+}//g; print $_;' _site/assets/css/purged/styles.css
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3

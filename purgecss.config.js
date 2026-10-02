@@ -9,6 +9,6 @@ module.exports = {
     ],
 
     variables: true,
-    output: './_site/assets/css/styles.purge.css'
+    output: './_site/assets/css/purged'
 
 }
