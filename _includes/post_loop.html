@@ -4,10 +4,10 @@
     {% assign post_arr = site.posts | where: "language", "he" %}
 {% endif %}
 
-<section role="list">
+<section class="blog-feed" role="list">
     {% for post in post_arr %}
         <article role="listitem">
-            <img src="{{ post.featured_img | prepend: site.baseurl }}"> 
+            <img class="thumbnail" src="{{ post.featured_img | prepend: site.baseurl }}"> 
             <header>
                 <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
                 <time datetime="{{ post.date }}">{{ post.date | date_to_string: "ordinal", "US" }}</time>

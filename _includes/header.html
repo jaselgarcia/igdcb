@@ -3,25 +3,27 @@
 {% endif %}
 
 {% if page.path contains "en" %}
-    {% assign logo_path = site.logo_en_path | prepend: site.baseurl %}
-    {% assign nav_arr = site.data.nav | where: "language", "en" | sort: "pos" %}
+    {% assign logo = site.logo_en" %}
+    {% assign nav_arr = site.data.primary-nav | where: "language", "en" | sort: "pos" %}
     {% unless translation_url %}
         {% assign translation_url = page.url | remove_first: "en/" | prepend: site.baseurl %}
     {% endunless %}
 {% else %}
-    {% assign logo_path = site.logo_he_path | prepend: site.baseurl %}
-    {% assign nav_arr = site.data.nav | where: "language", "he" | sort: "pos" %}
+    {% assign logo = site.logo_he" %}
+    {% assign nav_arr = site.data.primary-nav | where: "language", "he" | sort: "pos" %}
     {% unless translation_url %}
         {% assign translation_url = page.url | prepend: "/en" | prepend: site.baseurl %}
     {% endunless %}
 {% endif %}
 
-<nav aria-label="primary">
+<nav class="primary-nav" aria-label="primary">
     <ul role="list">
     {% for nav_item in nav_arr %}
         <li role="listitem">
         {% if nav_item.name == "Home" or nav_item.name == "בית" %}
-            <a href="{{ nav_item.link }}"><img src="{{ logo_path }}"></a>
+            <a href="{{ nav_item.link }}">
+                {% include {{ logo }} %}
+            </a>
         {% elsif nav_item.name == "עב" or nav_item.name == "EN" %}
             <a href="{{ translation_url }}">{{ nav_item.name }}</a>
         {% else %}

@@ -3,8 +3,9 @@ url: ""
 baseurl: "/igdcb"
 description: ""
 
-logo_en_path: "/assets/images/logo.en.full-color.nobg.1555x559.png"
-logo_he_path: "/assets/images/logo.he.full-color.nobg.1060x322.png"
+logo_en: "svg/logo.en.full-color.nobg.200x72.min.svg"
+logo_he: "svg/logo.he.full-color.nobg.200x61.min.svg"
+
 excerpt_separator: <!--excerpt-end-->
 
 defaults:
