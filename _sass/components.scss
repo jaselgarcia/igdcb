@@ -2,6 +2,7 @@
     position: sticky;
     top: 0;
     background-color: white;
+    border-bottom: solid 3px var(--clr-primary);
 }
 
 .primary-nav {
@@ -20,11 +21,38 @@
 }
 
 .blog-feed {
-    & > article {
-        display: grid;
+    --grid-width: 5;
+    --grid-height: 1;
+    --thumbnail-spread: 2;
+    
+    background-color: white;
+    max-width: max(75%, 800px);
+    margin: 0 auto;
+    padding: var(--padding-100);
+
+    & > article + article {
+        margin-top: calc(#{$base_margin} * 2 ); 
+        border-top: solid 1px var(--clr-primary);
     }
 
-    & article .thumbnail {
+    & > article {
+        display: grid;
+        grid-template-rows: min-content repeat(var(--grid-height), 1fr);
+        grid-template-columns: repeat(var(--grid-width), 1fr); 
+        max-width: max(100ch, 600px);
+        margin: 0 auto;
+        padding: var(--padding-100);
+
+        & .thumbnail {
+            grid-row: 1 / -1;
+            grid-column: 1 / span var(--thumbnail-spread);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        & > :not(.thumbnail) {
+            grid-column: calc(var(--thumbnail-spread) + 1) / spread calc(var(--grid-width) - var(--thumbnail-spread));
+        }
     }
 }
 
