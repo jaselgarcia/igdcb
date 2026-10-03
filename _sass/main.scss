@@ -5,15 +5,17 @@
 */
 
 * {
-    & + &:not(dialog) { 
+    & + &:not(dialog, body) { 
         margin-top: calc(#{$base_margin} * 1.5);
     }
 }
 
 body {
-    background-color: white;
+    background-color: var(--clr-secondary-lightest);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    direction: rtl;
 }
-
 
 a {
     height: fit-content;
@@ -24,3 +26,16 @@ a {
     }
 }
 
+header {
+    min-height: var(--padding-min); 
+    outline: solid green;
+}
+
+main {
+    padding: var(--padding-100);
+}
+
+footer {
+    min-height: var(--padding-min); 
+    outline: solid red;
+}

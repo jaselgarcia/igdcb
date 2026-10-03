@@ -12,12 +12,15 @@
         <link rel="stylesheet" href="{{ site.baseurl | append: "/assets/css/purged/styles.css" }}">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             {% include header.html %}
         </header>
         <main>
             {{ content }}
         </main>
+        <footer>
+            <p>Foo bar baz</p>
+        </footer>
     </body>
 </html>
 

@@ -17,7 +17,20 @@ $theme_colors: (
         @for $i from 1 through 9 {
            $color_percentage: 100 - $i * 10;
             
-           --_#{$color}_#{$color_percentage}: color-mix(white, #{$value} #{$color_percentage}%);
+           --_#{$color}_0#{$color_percentage}: color-mix(white, #{$value} #{$color_percentage}%);
         }
+        
+        --_#{$color}_100: #{$value}; 
     }
+
+    --clr-primary: var(--_orange_100);
+    --clr-secondary: var(--_yellow_100);
+    --clr-accent: var(--_green_100);
+    --clr-primary-lightest: var(--_orange_010);
+    --clr-secondary-lightest: var(--_yellow_010);
+
+    --padding-075: calc(#{$base_padding} * .75);
+    --padding-100: calc(#{$base_padding} * 1);
+    --padding-125: calc(#{$base_padding} * 1.25);
 }
+
