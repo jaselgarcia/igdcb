@@ -17,21 +17,19 @@ body {
     direction: rtl;
 }
 
-a {
-    height: fit-content;
-    display: inline-block;
-
-    &:hover {
-        background-color: red;
-    }
-}
-
 header {
     min-height: var(--padding-min); 
 }
 
 main {
+    --max-width: calc(100% - #{$base_margin} * 3);
+
     padding: var(--padding-100);
+    background-color: white;
+    min-width: min(1000px, var(--max-width)); 
+    max-width: var(--max-width);
+    margin-inline: auto;
+
 }
 
 footer {

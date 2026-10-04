@@ -29,8 +29,10 @@ $theme_colors: (
     --clr-primary-lightest: var(--_orange_010);
     --clr-secondary-lightest: var(--_yellow_010);
 
+    --padding-050: calc(#{$base_padding} * .50);
     --padding-075: calc(#{$base_padding} * .75);
     --padding-100: calc(#{$base_padding} * 1);
     --padding-125: calc(#{$base_padding} * 1.25);
+    --padding-200: calc(#{$base_padding} * 2);
 }
 
