@@ -17,7 +17,7 @@
     <p>{{ street }}, {{ city }} {{ site.address_zip }}</p>
     <p><a href="telephone: {{ phone | remove: "+" | remove: "-" }}">{{ phone }}</a> | 
     <a href="mailto: {{ site.email }}">{{ site.email }}</a> | 
-    {{ npo_str | replace: " " "&nbsp" }}&nbsp;{{ site.npo_num }}</p>
+    {{ npo_str | replace: " " "&nbsp" }}&nbsp;<span class="nowrap">{{ site.npo_num }}</span></p>
 </section>
 <nav class="footer-nav" aria-label="socials">
     <ul role="list">

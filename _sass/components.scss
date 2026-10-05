@@ -1,22 +1,35 @@
 .site-header {
     position: sticky;
     top: 0;
+    z-index: 1;
     background-color: white;
     border-bottom: solid 3px var(--clr-primary);
 }
 
 .primary-nav {
     padding: var(--padding-070) var(--padding-120);
+    container-type: inline-size;
 
     & > ul {
         display: flex;
-        gap: var(--padding-min);
+        gap: var(--padding-010);
         justify-content: space-between;
         align-items: baseline;
 
         & li:has(#logo) {
             flex-basis: 75%;
         }
+    }
+
+    @container (width <= 450px) {
+
+        & > ul li:has(#logo) {
+            flex-basis: unset;
+        }
+
+        #logo-text {
+            display: none;
+        } 
     }
 }
 
@@ -108,7 +121,7 @@
     } 
 
     & img:first-of-type {
-        max-width: var(--max-width);
+        max-width: min(100%, 600px);
         margin-inline: auto;
         object-fit: cover;
         object-position: 50% 25%;
