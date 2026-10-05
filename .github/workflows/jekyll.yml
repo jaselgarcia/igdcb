@@ -53,7 +53,7 @@ jobs:
       - name: Run PurgeCSS
         run: purgecss -c ./purgecss.config.js 
       - name: Beautify HTML output
-      - run: html-beautify -r ./_site/*html ./_site/**/*html
+        run: html-beautify -r ./_site/*html ./_site/**/*html
       - name: Decomment and remove empty rules from purged css
         run: perl -0777 -i -ne 's|/\*[^\*]*\*/||g; s/[[:alpha:]\s:()]+{[\s]+}//g; print $_;' _site/assets/css/purged/styles.css
       - name: Upload artifact
