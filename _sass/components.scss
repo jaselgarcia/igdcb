@@ -6,7 +6,7 @@
 }
 
 .primary-nav {
-    padding: var(--padding-075) var(--padding-125);
+    padding: var(--padding-070) var(--padding-120);
 
     & > ul {
         display: flex;
@@ -27,9 +27,19 @@
 
     container: blog-feed / inline-size;
 
+
     & > * + article {
         margin-top: calc(#{$base_margin} * 2 ); 
         border-top: solid 1px var(--clr-primary);
+   }
+
+    &  blockquote {
+        max-width: 60ch;
+       text-align: justify; 
+       
+        & p + p {
+            margin-top: calc(#{$base_margin} * .75);
+        }
     }
 
     & > article {
@@ -40,7 +50,7 @@
         display: grid;
         grid-template-rows: min-content min-content repeat(var(--grid-height), 1fr);
         grid-template-columns: repeat(var(--grid-width), 1fr); 
-        gap: var(--padding-050);
+        gap: var(--padding-025);
 
         padding-top: var(--padding-200);
 
@@ -58,7 +68,7 @@
 
             grid-template-rows: min-content repeat(var(--grid-height), 1fr);
             grid-template-columns: repeat(var(--grid-width), 1fr); 
-            gap: var(--padding-125);
+            gap: var(--padding-120);
 
             & .thumbnail {
                 grid-column: 1 / span var(--thumbnail-spread);
@@ -71,13 +81,34 @@
             & > :not(.thumbnail) {
                 grid-column: calc(var(--thumbnail-spread) + 1) / spread calc(var(--grid-width) - var(--thumbnail-spread));
             }
+
+            & > *  {
+                margin-top: 0;
+            }
         }
     }
 
-    @container blog-feed (width >= 800px) {
+    @container blog-feed (width >= 700px) {
         & > article {
             --grid-width: 6;
         }
     }
 }
 
+.blog-post {
+    max-width: max(100ch, 600px);
+    margin-inline: auto;
+
+
+    & > *:not(img) {
+        max-width: calc(100% - var(--padding-100));
+        margin-inline: auto;
+    } 
+
+    & img:first-of-type {
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 25%;
+        aspect-ratio: 15 / 10;
+    }
+}
