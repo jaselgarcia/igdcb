@@ -2,7 +2,7 @@
     {% assign translation_url = page.translation_url %}
 {% endif %}
 
-{% if page.path contains "en" %}
+{% if page.path contains "en/" %}
     {% assign logo = site.logo_en" %}
     {% assign nav_arr = site.data.primary-nav | where: "language", "en" | sort: "pos" %}
     {% unless translation_url %}

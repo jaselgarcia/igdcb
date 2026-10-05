@@ -6,7 +6,10 @@
   link: https://www.israelguidedog.org.il/en/
   language: en
   pos: 1
-- name: Donate
+- name: "עב"
+  language: en
+  pos: 3
+- name: לתרומות
   link: https://donate.israelguidedog.org.il/
   language: he
   pos: 2
@@ -14,10 +17,7 @@
   link: https://www.israelguidedog.org.il/
   language: he
   pos: 1
-- name: "עב"
-  language: en
-  pos: 3
 - name: "EN" 
   language: he
-  pos: 1 
+  pos: 3 
 
