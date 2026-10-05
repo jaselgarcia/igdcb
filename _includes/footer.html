@@ -24,7 +24,7 @@
     {% for nav_item in site.data.footer-nav %}
         <li role="listitem">
         {% if nav_item.icon %}
-            <a href="{{ nav_item.link }}">
+            <a aria-label="{{ nav_item.label }}" href="{{ nav_item.link }}">
                 {% include {{ nav_item.file }} %}
             </a>
         {% endif %}

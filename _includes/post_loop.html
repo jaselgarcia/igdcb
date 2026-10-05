@@ -3,7 +3,7 @@
     {% assign post_arr = site.posts | where: "language", "en" %}
     {% assign feed-title = "Latest Posts" %}
 {% else %}
-    {% assign date-format = "%Y.%d.%m" %}
+    {% assign date-format = "%d.%m.%Y" %}
     {% assign post_arr = site.posts | where: "language", "he" %}
     {% assign feed-title = "פוסטים אחרונים" %}
 {% endif %}
@@ -12,7 +12,7 @@
     <h1>{{ feed-title }}</h1>
     {% for post in post_arr %}
         <article role="listitem">
-            <img class="thumbnail" src="{{ post.featured_thumbnail | prepend: site.baseurl }}"> 
+            <img class="thumbnail" alt="{{ post.featured_image_alt_text }}" src="{{ post.featured_thumbnail | prepend: site.baseurl }}"> 
             <header>
                 <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
                 <time datetime="{{ post.date }}">{{ post.date | date: date-format }}</time>

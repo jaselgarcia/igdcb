@@ -7,7 +7,7 @@ layout: default
 {% if page.path contains "en/" %}
     {% assign date-format = "%m.%d.%Y" %}
 {% else %}
-    {% assign date-format = "%Y.%d.%m" %}
+    {% assign date-format = "%d.%m.%Y" %}
 {% endif %}
 
 <article class="blog-post">
@@ -16,7 +16,7 @@ layout: default
         <time datetime="{{ page.date }}">{{ page.date | date: date-format }}</time>
     </header>
 
-    <img src="{{ page.featured_image | prepend: site.baseurl }}" />
+    <img alt="{{ page.featured_image_alt_text }}" src="{{ page.featured_image | prepend: site.baseurl }}" />
 
 {{ content }}
 </article>
