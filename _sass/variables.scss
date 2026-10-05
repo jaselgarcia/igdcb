@@ -16,18 +16,23 @@ $theme_colors: (
         @for $i from 1 through 9 {
            $color_percentage: 100 - $i * 10;
             
-           --_#{$color}_0#{$color_percentage}: color-mix(white, #{$value} #{$color_percentage}%);
+           --_#{$color}_light_0#{$color_percentage}: color-mix(white, #{$value} #{$color_percentage}%);
+           --_#{$color}_dark_0#{$color_percentage}: color-mix(black, #{$value} #{$color_percentage}%);
         }
         
         --_#{$color}_100: #{$value}; 
     }
 
     --clr-primary: var(--_orange_100);
-    --clr-secondary: var(--_yellow_100);
+    --clr-primary-lightest: var(--_orange_light_010);
+
     --clr-accent: var(--_green_100);
-    --clr-accent-lighter: var(--_green_070);
-    --clr-primary-lightest: var(--_orange_010);
-    --clr-secondary-lightest: var(--_yellow_010);
+    --clr-accent-dark: var(--_green_dark_080);
+    --clr-accent-darker: var(--_green_dark_070);
+    --clr-accent-lighter: var(--_green_light_070);
+
+    --clr-secondary: var(--_yellow_100);
+    --clr-secondary-lightest: var(--_yellow_light_010);
 
     // Padding and Font sizes
     @for $i from 10 through 90 {

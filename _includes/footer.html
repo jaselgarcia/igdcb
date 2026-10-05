@@ -1,0 +1,35 @@
+{% if page.path contains "en/" %}
+    {% assign street = site.address_en_street %}
+    {% assign city = site.address_en_city %}
+    {% assign description = site.description_en %}
+    {% assign phone = site.phone_en %}
+    {% assign npo_str = site.npo_str_en %}
+{% else %}
+    {% assign street = site.address_he_street %}
+    {% assign city = site.address_he_city %}
+    {% assign description = site.description_he %}
+    {% assign phone = site.phone_he %}
+    {% assign npo_str = site.npo_str_he %}
+{% endif %}
+
+<section>
+    <p>{{ description }}</p>
+    <p>{{ street }}, {{ city }} {{ site.address_zip }}</p>
+    <p><a href="telephone: {{ phone | remove: "+" | remove: "-" }}">{{ phone }}</a> | 
+    <a href="mailto: {{ site.email }}">{{ site.email }}</a> | 
+    {{ npo_str | replace: " " "&nbsp" }}&nbsp;{{ site.npo_num }}</p>
+</section>
+<nav class="footer-nav" aria-label="socials">
+    <ul role="list">
+    {% for nav_item in site.data.footer-nav %}
+        <li role="listitem">
+        {% if nav_item.icon %}
+            <a href="{{ nav_item.link }}">
+                {% include {{ nav_item.file }} %}
+            </a>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
+    

@@ -22,6 +22,7 @@ body {
     & :is(header, article, section) > *:first-child:not(p, ul) {
         font-family: var(--ff-heading);
         color: var(--clr-primary);
+        line-height: calc(#{$base_margin} + .75rem);
 
         &:is(h1) {
             font-size: var(--fs-300);
@@ -45,8 +46,64 @@ main {
 }
 
 footer {
-    min-height: var(--padding-min); 
     background-color: var(--clr-primary);
+    padding: var(--padding-100);
+    color: white;
+
+    display: grid;
+
+    & .footer-nav {
+        margin-top: 0;
+        grid-row: 1 / span 1;
+
+        & *[role="list"] {
+           display: flex;
+           gap: calc(#{$base_margin} + 1.5rem);
+           align-items: center;
+
+           & li {
+               margin-top: 0;
+           }
+            
+           & svg {
+                max-width: 40px;
+           }
+        }
+    }
+
+    & > * {
+        justify-self: center;
+        gap: var(--padding-100);
+    }
+
+    & p {
+        text-align: center; 
+           
+        & + p {
+            margin-top: calc(#{$base_margin} * .25);
+        }
+    }
+
+    & *:any-link {
+        color: inherit;
+
+       &:hover {
+           color: var(--clr-accent-darker);
+       }
+    }
+
+    @media screen and (width >= 700px) {
+        grid-template-columns: fit-content auto min-content;
+        
+        & .footer-nav {
+            grid-column: 3 / span 1;
+        }
+
+        & p {
+            text-align: inherit;
+        }
+    }
+
 }
 
 article {
@@ -62,7 +119,6 @@ article {
     }
 
     & > header {
-       line-height: calc(#{$base_margin} + .75rem);
 
         time {
             display: inline-block;

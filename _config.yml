@@ -3,6 +3,23 @@ url: ""
 baseurl: "/igdcb"
 description: ""
 
+description_he: "מרכז ישראלי לכלבי נחייה לעיוורים"
+description_en: "Israel Guide Dog Center for the Blind"
+
+address_he_street: "דרך השדות 6"
+address_he_city: "בית עובד"
+address_en_street: "Derech HaSedot 6"
+address_en_city: "Beit Oved"
+address_zip: 7680000 
+
+phone_he: "08-9408213"
+phone_en: "+972-8-940-8213"
+
+npo_str_he: "ע”ר: מס"
+npo_str_en: "NPO:"
+npo_num: "58-016-896-1"
+email: "info@igdcb.org"
+
 logo_en: "svg/logo.en.full-color.nobg.200x72.min.svg"
 logo_he: "svg/logo.he.full-color.nobg.200x61.min.svg"
 
