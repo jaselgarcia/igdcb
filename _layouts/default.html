@@ -1,3 +1,7 @@
+{% if page.path contains "en/" %}
+    {% assign language = "en" %}
+{% endif %}
+
 <!doctype html>
 
 <html>
@@ -10,9 +14,25 @@
                 {{ page.title | prepend: " | " }}
             {% endif %}
         </title>
+
+        <!--    
+            Instructive resources detailing the performance benefits of preconnecting, preloading fonts:
+            - https://www.cdnplanet.com/blog/faster-google-webfonts-preconnect 
+        -->
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">     
+
+        {% if language == "en" %}
+        <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Noto+Serif+Hebrew:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        {% else %}
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        {% endif %}
+
         <link rel="stylesheet" href="{{ site.baseurl | append: "/assets/css/purged/styles.css" }}" />
     </head>
-    <body>
+    <body {% if language == "en" %} class="en" {% endif %}>
         <header class="site-header">
             {% include header.html %}
         </header>

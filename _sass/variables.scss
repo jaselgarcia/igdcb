@@ -1,11 +1,9 @@
-// Spacing 
+// Base values
 $base_margin: 1em;
 $base_padding: 1rem;
-
-// Fonts
 $base_fontsize: 1rem;
 
-// Colors
+// Maps
 $theme_colors: (
     "orange": #ee7f2f,
     "yellow": #f7ba25,
@@ -13,6 +11,7 @@ $theme_colors: (
 );
 
 :root {
+    // Colors 
     @each $color, $value in $theme_colors {  
         @for $i from 1 through 9 {
            $color_percentage: 100 - $i * 10;
@@ -26,13 +25,33 @@ $theme_colors: (
     --clr-primary: var(--_orange_100);
     --clr-secondary: var(--_yellow_100);
     --clr-accent: var(--_green_100);
+    --clr-accent-lighter: var(--_green_070);
     --clr-primary-lightest: var(--_orange_010);
     --clr-secondary-lightest: var(--_yellow_010);
 
-    --padding-050: calc(#{$base_padding} * .50);
-    --padding-075: calc(#{$base_padding} * .75);
-    --padding-100: calc(#{$base_padding} * 1);
-    --padding-125: calc(#{$base_padding} * 1.25);
-    --padding-200: calc(#{$base_padding} * 2);
+    // Padding and Font sizes
+    @for $i from 10 through 90 {
+        $factor: $i / 100;
+        --padding-0#{$i}: calc(#{$base_padding} * #{$factor});
+        --fs-0#{$i}: calc(#{$base_fontsize} * #{$factor});
+    }
+
+    @for $i from 10 through 30 {
+        $str_val: $i * 10;
+        $num_val: $str_val / 100;
+            
+        --fs-#{$str_val}: calc(#{$base_fontsize} * #{$num_val});
+        --padding-#{$str_val}: calc(#{$base_padding} * #{$num_val});
+    }
+
+    // Font families
+    --ff-heading: "Rubik", sans-serif;
+    --ff-body: "Noto Serif Hebrew", serif;
+
+    &:has(.en) {
+        --ff-body: "Baskerville", serif;
+    }
+
+
 }
 
