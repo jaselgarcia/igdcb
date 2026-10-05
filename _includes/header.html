@@ -1,5 +1,5 @@
 {% if page.translation_url %}
-    {% assign translation_url = page.translation_url %}
+    {% assign translation_url = page.translation_url | prepend: site.baseurl %}
 {% endif %}
 
 {% if page.path contains "en/" %}
@@ -26,6 +26,8 @@
             </a>
         {% elsif nav_item.name == "עב" or nav_item.name == "EN" %}
             <a href="{{ translation_url }}">{{ nav_item.name }}</a>
+        {% elsif nav_item.name == "בלוג" or nav_item.name == "Blog" %}
+            <a href="{{ nav_item.link | prepend: site.baseurl }}">{{ nav_item.name }}</a>
         {% else %}
             <a href="{{ nav_item.link }}">{{ nav_item.name }}</a>
         {% endif %}

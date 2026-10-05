@@ -32,7 +32,26 @@ body {
     &.en {
         direction: ltr;
     }
+    
+    & *:is(main) *:any-link {
+       &:visited {
+            color: var(--clr-accent-lighter);
+        }
+
+       &:hover {
+           color: var(--clr-accent-darker);
+       }
+    }
+
+    & *:any-link {
+       color: inherit;
+
+       &:hover {
+           color: var(--clr-accent-darker);
+       }
+    }
 }
+
 
 main {
     --max-width: calc(100% - #{$base_margin} * 3);
@@ -84,14 +103,6 @@ footer {
         }
     }
 
-    & *:any-link {
-        color: inherit;
-
-       &:hover {
-           color: var(--clr-accent-darker);
-       }
-    }
-
     @media screen and (width >= 700px) {
         grid-template-columns: fit-content auto min-content;
         
@@ -107,17 +118,6 @@ footer {
 }
 
 article {
-
-    & *:any-link {
-       &:visited {
-            color: var(--clr-accent-lighter);
-       }
-
-       &:hover {
-           color: var(--clr-accent);
-       }
-    }
-
     & > header {
 
         time {

@@ -96,7 +96,9 @@
 }
 
 .blog-post {
-    max-width: max(100ch, 600px);
+    --max-width: max(55em, 600px);
+
+    max-width: var(--max-width);
     margin-inline: auto;
 
 
@@ -106,7 +108,8 @@
     } 
 
     & img:first-of-type {
-        width: 100%;
+        max-width: var(--max-width);
+        margin-inline: auto;
         object-fit: cover;
         object-position: 50% 25%;
         aspect-ratio: 15 / 10;
