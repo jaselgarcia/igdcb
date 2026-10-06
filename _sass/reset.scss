@@ -34,7 +34,7 @@
 }
 
 body {
-    line-height: calc(#{$base_margin} + .5rem);
+    line-height: calc(#{$base_margin} + var(--base-line-height));
     -webkit-font-smoothing: antialiasing;
     min-block-size: 100svh;
     margin: 0;

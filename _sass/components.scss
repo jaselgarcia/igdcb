@@ -7,7 +7,7 @@
 }
 
 .primary-nav {
-    padding: var(--padding-070) var(--padding-120);
+    padding: clamp(var(--padding-min), 1vw, var(--padding-max)) clamp(calc(var(--padding-min) * 2), 2vw, calc(var(--padding-max) * 2));
     container-type: inline-size;
     
 
@@ -23,8 +23,15 @@
         grid-template-rows: repeat(var(--grid-height), min-content);
 
         & li {
-            margin-top: calc(#{$base-margin} * .75);
+            --margin-multiplier: 0;
+
+            margin-top: calc(#{$base-margin} * var(--margin-multiplier));
             justify-self: center;
+
+            & #logo {
+                width: 150px; 
+            }
+
         
             &:has(#logo) {
                 grid-column: 1 / span var(--logo-span);
@@ -32,7 +39,20 @@
         }
     }
 
-    
+    @container (width >= 360px) {
+        padding:  var(--padding-100) var(--padding-100);
+
+        & > ul {
+            & li {
+                --margin-multiplier: var(--flow-margin-multiplier);
+
+                & #logo {
+                    width: 200px; 
+                }
+            }
+        }
+    }
+
     @container (width >= 550px) {
         & > ul {
             --grid-width: 7; 
@@ -43,6 +63,10 @@
                 align-self: end; 
                 justify-self: end;
 
+                & #logo {
+                    width: 200px; 
+                }
+
                 &:has(#logo) {
                     justify-self: start;
                 }
@@ -52,22 +76,26 @@
 }
 
 .blog-feed {
-    max-width: max(100ch, 600px);
+    --max-width: 900px;
+    --min-width: 95vw;
+    --excerpt-width: 75ch;
+
+    padding: clamp(var(--padding-min), 1vw, var(--padding-max));
+    width: min(var(--min-width), var(--max-width));
     margin: 0 auto;
-    padding: var(--padding-100);
 
     container: blog-feed / inline-size;
 
 
     & > * + article {
-        margin-top: calc(#{$base_margin} * 2 ); 
+        margin-top: calc(#{$base_margin} * var(--flow-margin-multiplier)); 
         border-top: solid 1px var(--clr-primary);
    }
 
 
     &  blockquote {
-        max-width: 60ch;
-       text-align: justify; 
+        max-width: var(--excerpt-width); 
+        text-align: justify; 
        
     }
 
@@ -75,13 +103,13 @@
         --grid-width: 1;
         --grid-height: 1;
         --thumbnail-spread: 2;
+        --padding-min: var(--padding-100);
 
         display: grid;
         grid-template-rows: auto min-content repeat(var(--grid-height), 1fr);
         grid-template-columns: repeat(var(--grid-width), 1fr); 
         gap: var(--padding-025);
-
-        padding-top: var(--padding-200);
+        padding-top: clamp(var(--padding-min), 1vw, var(--padding-max));
 
         & .thumbnail {
             object-fit: cover;
@@ -131,19 +159,20 @@
 }
 
 .blog-post {
-    --max-width: max(55em, 600px);
+    --max-width: 1000px;
+    --min-width: 95vw;
+    
 
-    max-width: var(--max-width);
+    width: min(var(--min-width), var(--max-width));
     margin-inline: auto;
 
-
     & > *:not(img) {
-        max-width: calc(100% - var(--padding-100));
+        max-width: min(98%, 800px);
         margin-inline: auto;
     } 
 
+
     & img:first-of-type {
-        max-width: min(100%, 600px);
         margin-inline: auto;
         object-fit: cover;
         object-position: 50% 25%;

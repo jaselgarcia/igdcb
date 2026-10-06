@@ -4,9 +4,40 @@
     Appened ':not(dialog)' pseudo-class to match idea from Comeau reset.
 */
 
+:root {
+    --h1-max: var(--fs-110);
+    --h1-min: var(--fs-100);
+    --body-max: var(--fs-060);
+    --body-min: var(--fs-050);
+
+    --flow-margin-multiplier: .9;
+    --heading-line-height: 1.3;
+    --base-line-height: var(--fs-030);
+
+    --padding-min: var(--padding-010);
+    --padding-max: var(--padding-100);
+
+    @media screen and (width >= 375px) {
+        --h1-max: var(--fs-180);
+        --h1-min: var(--fs-120);
+        --body-max: var(--fs-100);
+        --body-min: var(--fs-060); 
+
+        --flow-margin-multiplier: 1.3;
+        --base-line-height: var(--fs-060);
+        
+        --padding-min: var(--padding-040);
+    }
+
+    @media screen and (width >= 600px) {
+        --h1-max: var(--fs-230);
+        --base-line-height: var(--fs-080);
+    }
+}
+
 * {
     & + &:not(dialog, body) { 
-        margin-top: calc(#{$base_margin} * 1.5);
+        margin-top: calc(#{$base_margin} * var(--flow-margin-multiplier));
     }
 }
 
@@ -17,15 +48,15 @@ body {
     direction: rtl;
 
     font-family: var(--ff-body);
-    font-size: var(--fs-100); 
+    font-size: clamp(var(--body-min), 2vw, var(--body-max));
 
     & :is(header, article, section) > *:first-child:not(p, ul) {
         font-family: var(--ff-heading);
         color: var(--clr-primary);
-        line-height: calc(#{$base_margin} + .75rem);
 
         &:is(h1) {
-            font-size: clamp(var(--fs-170), 7vw, var(--fs-200));
+            font-size: clamp(var(--h1-min), 7vw, var(--h1-max));
+            line-height: calc(#{$base_margin} * var(--heading-line-height)); 
         }
     }
 
@@ -54,12 +85,12 @@ body {
 
 
 main {
-    --max-width: calc(100% - #{$base_margin} * 3);
+    --max-width: calc(100% - #{$base_margin});
+    --min-width: 1000px;
 
-    padding: var(--padding-100);
+    padding: clamp(var(--padding-min), 1vw, var(--padding-max));
     background-color: white;
-    min-width: min(1000px, var(--max-width)); 
-    max-width: var(--max-width);
+    width: min(var(--min-width), var(--max-width)); 
     margin-inline: auto;
 
 }
@@ -118,13 +149,12 @@ footer {
 }
 
 article {
+    
     & > header {
-
         time {
             display: inline-block;
-            margin-top: calc(#{$base_margin} - var(--padding-050));
+            margin-top: clamp(calc(#{$base_margin} * .75), 2vw, #{$base_margin});
             font-family: var(--ff-body);
-            font-size: var(--fs-090);
             color: black;
         } 
 
