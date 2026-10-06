@@ -25,7 +25,7 @@ body {
         line-height: calc(#{$base_margin} + .75rem);
 
         &:is(h1) {
-            font-size: var(--fs-300);
+            font-size: clamp(var(--fs-170), 7vw, var(--fs-200));
         }
     }
 
@@ -134,6 +134,6 @@ article {
     }
 } 
 
-.norwap {
+.nowrap {
     white-space: nowrap;
 }
