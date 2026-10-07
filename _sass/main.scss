@@ -26,7 +26,7 @@
         --h1-max: var(--fs-180);
         --h1-min: var(--fs-120);
         --body-max: var(--fs-100);
-        --body-min: var(--fs-090); 
+        --body-min: var(--fs-100);
 
         --flow-margin-multiplier: 1.3;
         --base-line-height: var(--fs-060);
@@ -34,12 +34,16 @@
         --padding-min: var(--padding-040);
 
         & h2 {
-            font-size: 1.5em;
+            line-height: calc(#{$base_margin} * var(--heading-line-height)); 
         }
+
     }
 
-    @media screen and (width >= 350px) {
-
+    @media screen and (width >= 450px) {
+        & h2 {
+            font-size: 1.5em;
+            line-height: inherit;
+        }
     }
 
     @media screen and (width >= 600px) {
