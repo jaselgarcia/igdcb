@@ -17,11 +17,12 @@
     --padding-min: var(--padding-010);
     --padding-max: var(--padding-100);
 
-    @media screen and (width >= 375px) {
+    @media screen and (width >= 370px) {
+
         --h1-max: var(--fs-180);
         --h1-min: var(--fs-120);
         --body-max: var(--fs-100);
-        --body-min: var(--fs-060); 
+        --body-min: var(--fs-080); 
 
         --flow-margin-multiplier: 1.3;
         --base-line-height: var(--fs-060);
@@ -31,7 +32,7 @@
 
     @media screen and (width >= 600px) {
         --h1-max: var(--fs-230);
-        --base-line-height: var(--fs-080);
+        --base-line-height: var(--fs-100);
     }
 }
 
@@ -76,6 +77,7 @@ body {
 
     & *:any-link {
        color: inherit;
+       display: inline-block;
 
        &:hover {
            color: var(--clr-accent-darker);
@@ -85,7 +87,7 @@ body {
 
 
 main {
-    --max-width: calc(100% - #{$base_margin});
+    --max-width: calc(100% -var(--padding-min));
     --min-width: 1000px;
 
     padding: clamp(var(--padding-min), 1vw, var(--padding-max));
@@ -153,7 +155,7 @@ article {
     & > header {
         time {
             display: inline-block;
-            margin-top: clamp(calc(#{$base_margin} * .75), 2vw, #{$base_margin});
+            margin-top: clamp(calc(#{$base_margin} * .15), 2vw, calc(#{$base_margin} * .25));
             font-family: var(--ff-body);
             color: black;
         } 
