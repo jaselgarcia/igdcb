@@ -17,6 +17,10 @@
     --padding-min: var(--padding-010);
     --padding-max: var(--padding-100);
 
+    & h2 {
+        font-size: clamp(var(--h1-min), 7vw, var(--h1-max));
+    }
+
     @media screen and (width >= 270px) {
 
         --h1-max: var(--fs-180);
@@ -28,6 +32,10 @@
         --base-line-height: var(--fs-060);
         
         --padding-min: var(--padding-040);
+
+        & h2 {
+            font-size: 1.5em;
+        }
     }
 
     @media screen and (width >= 350px) {
