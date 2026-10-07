@@ -83,7 +83,7 @@ body {
     
     & *:is(main) *:any-link {
        &:visited {
-            color: var(--clr-accent-lighter);
+            // color: var(--clr-accent-lighter);
         }
 
        &:hover {
@@ -103,7 +103,7 @@ body {
 
 
 main {
-    --max-width: calc(100% -var(--padding-min));
+    --max-width: calc(100% - var(--padding-min));
     --min-width: 1000px;
 
     padding: clamp(var(--padding-min), 1vw, var(--padding-max));
@@ -169,9 +169,13 @@ footer {
 article {
     
     & > header {
-        time {
+        & time {
+            --body-min: var(--fs-080); 
+            --body-max: var(--fs-070); 
+
+            font-size: clamp(var(--body-min), 2vw, var(--body-max));
             display: inline-block;
-            margin-top: clamp(calc(#{$base_margin} * .15), 2vw, calc(#{$base_margin} * .25));
+            margin-top: clamp(calc(#{$base_margin} * .15), 2vw, calc(#{$base_margin} * .35));
             font-family: var(--ff-body);
             color: black;
         } 

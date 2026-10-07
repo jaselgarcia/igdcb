@@ -1,11 +1,14 @@
+{% assign excerpt_len  = 55 %}
 {% if page.path contains "en/" %}
     {% assign date-format = "%m.%d.%Y" %}
     {% assign post_arr = site.posts | where: "language", "en" %}
     {% assign feed-title = "Latest Posts" %}
+    {% assign readmore = "Read More" %}
 {% else %}
     {% assign date-format = "%d.%m.%Y" %}
     {% assign post_arr = site.posts | where: "language", "he" %}
     {% assign feed-title = "פוסטים אחרונים" %}
+    {% assign readmore = "קרא עוד" %}
 {% endif %}
 
 <section class="blog-feed" role="list">
@@ -18,7 +21,17 @@
                 <time datetime="{{ post.date }}">{{ post.date | date: date-format }}</time>
             </header>
             <blockquote cite="{{ post.url | prepend: site.baseurl }}">
-                {{ post.excerpt }}
+                <p>
+                    {% assign excerpt = post.excerpt | strip_html %}
+
+                    {% if excerpt | truncatewords: excerpt_len | size > excerpt | size %} 
+                        {{ excerpt | truncatewords: excerpt_len }}
+                    {% else %}
+                        {{ excerpt | truncatewords: excerpt_len, "" }}
+                    {% endif %}
+
+                    <span><a href="{{ post.url | prepend: site.baseurl }}">{{ readmore }} &raquo;</a></span>
+                </p>
             </blockquote>
         </article>
     {% endfor %}

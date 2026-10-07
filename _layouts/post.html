@@ -6,14 +6,29 @@ layout: default
 
 {% if page.path contains "en/" %}
     {% assign date-format = "%m.%d.%Y" %}
+    {% assign prev = "Prev post" %}
+    {% assign next = "Next post" %}
 {% else %}
     {% assign date-format = "%d.%m.%Y" %}
+    {% assign prev = "פוסט קודם" %}
+    {% assign next = "הפוסט הבא" %}
 {% endif %}
 
 <article class="blog-post">
     <header> 
         <h1>{{ page.title }}</h1>
         <time datetime="{{ page.date }}">{{ page.date | date: date-format }}</time>
+        <!--
+            TODO: filter site post array based off language
+            <nav>
+                {% if previous %}
+                    <a href="{{ page.previous.url | prepend: site.baseurl }}">&laquo; {{ prev }}</a>
+                {% endif %} 
+                {% if page.next %}
+                    <a href="{{ page.next.url | prepend: site.baseurl }}">{{ next }} &raquo;</a>
+                {% endif %} 
+            </nav>
+        -->
     </header>
 
     <img alt="{{ page.featured_image_alt_text }}" src="{{ page.featured_image | prepend: site.baseurl }}" />
