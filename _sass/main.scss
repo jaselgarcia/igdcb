@@ -7,8 +7,8 @@
 :root {
     --h1-max: var(--fs-110);
     --h1-min: var(--fs-100);
-    --body-max: var(--fs-060);
-    --body-min: var(--fs-050);
+    --body-max: var(--fs-080);
+    --body-min: var(--fs-060);
 
     --flow-margin-multiplier: .9;
     --heading-line-height: 1.3;
@@ -17,7 +17,7 @@
     --padding-min: var(--padding-010);
     --padding-max: var(--padding-100);
 
-    @media screen and (width >= 370px) {
+    @media screen and (width >= 350px) {
 
         --h1-max: var(--fs-180);
         --h1-min: var(--fs-120);

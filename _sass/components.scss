@@ -53,7 +53,7 @@
         }
     }
 
-    @container (width >= 350px) {
+    @container (width >= 330px) {
         padding:  var(--padding-100) var(--padding-100);
 
         & > ul {
