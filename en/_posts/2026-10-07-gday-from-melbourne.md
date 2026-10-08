@@ -1,8 +1,8 @@
 ---
 
 title: "G'day from Melbourne! Meet our newest apprentice trainers, Ido & Noga!"
-featured_thumbnail: "/assets/images/prague-guide-dog.800x800.jpeg"
-featured_image: "/assets/images/prague-guide-dog.800x800.jpeg"
+featured_thumbnail: "/assets/images/ido-noga.572x477.jpeg"
+featured_image:  "/assets/images/ido-noga.572x477.jpeg"
 featured_image_alt_text: "From left our two new apprentice trainers Noga and Ido. In front of them their Trainer & Mentor in Vision Australia Yoav"
 
 ---

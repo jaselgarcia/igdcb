@@ -1,8 +1,8 @@
 ---
 
 title: "שלום ממלבורן! הכירו את המאמנים החדשים שלנו, עידו ונגה!"
-featured_thumbnail: "/assets/images/prague-guide-dog.800x800.jpeg"
-featured_image: "/assets/images/prague-guide-dog.800x800.jpeg"
+featured_thumbnail: "/assets/images/ido-noga.572x477.jpeg"
+featured_image:  "/assets/images/ido-noga.572x477.jpeg"
 featured_image_alt_text: "על הבמה משמאל שני המאמנים החדשים שלנו נגה ועידו. לפניהם המאמןהמנטור שלהם בוויז'ן אוסטרליה, יואב"
 
 ---

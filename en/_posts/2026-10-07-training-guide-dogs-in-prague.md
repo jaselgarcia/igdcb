@@ -1,8 +1,8 @@
 ---
 
 title: "Training Guide Dogs in Prague"
-featured_thumbnail: "/assets/images/ido-noga.572x477.jpeg"
-featured_image: "/assets/images/ido-noga.572x477.jpeg"
+featured_thumbnail: "/assets/images/prague-guide-dog.800x800.jpeg"
+featured_image: "/assets/images/prague-guide-dog.800x800.jpeg"
 featured_image_alt_text: "Sheldon, Guide Dog in training in Prague, wearing a  harness in an obstacle course"
 
 ---
